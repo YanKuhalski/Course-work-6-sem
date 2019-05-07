@@ -1,6 +1,7 @@
 package by.bsuir.kuhalski.buber.service.impl;
 
 import by.bsuir.kuhalski.buber.model.User;
+import by.bsuir.kuhalski.buber.repository.Repository;
 import by.bsuir.kuhalski.buber.repository.impl.UserRepository;
 import by.bsuir.kuhalski.buber.repository.specification.Specification;
 import by.bsuir.kuhalski.buber.repository.specification.impl.SpecificationByLogin;
@@ -10,20 +11,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Getter
-@Setter
 @Service
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserServiceImpl extends AbstractService<User> implements UserService {
-    @Autowired
-    private UserRepository repository;
 
+    protected UserServiceImpl(@Qualifier("userRepository") Repository repository) {
+        this.repository = repository;
+    }
     @Override
     public long findUserIdByUserNameAndPassword(String username, String password) {
         Specification specification = new SpecificationByLoginAndPassword(username, password);

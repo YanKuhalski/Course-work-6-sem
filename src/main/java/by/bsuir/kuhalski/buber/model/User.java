@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import java.util.*;
 
-@EqualsAndHashCode(exclude = {"roles", "discounts","car","tripsAsDriver","tripsAsClient"})
+@EqualsAndHashCode(exclude = {"roles", "discounts", "car", "tripsAsDriver", "tripsAsClient"})
 @Getter
 @Setter
 @ToString(exclude = {"discounts", "car", "tripsAsDriver", "tripsAsClient"})
@@ -32,9 +32,9 @@ public class User {
     private String login;
 
     @Column(name = "password", length = 15)
-    private String password;
+    private String password  ;
 
-    @Column(name = "enabled", nullable = false)
+    @Column(name = "enabled")
     private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -52,7 +52,7 @@ public class User {
     private Set<Discount> discounts;
 
     @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private  Car  car ;
+    private Car car;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Trip> tripsAsClient;
@@ -67,4 +67,5 @@ public class User {
         roles = new HashSet<>();
         discounts = new HashSet<>();
     }
+
 }

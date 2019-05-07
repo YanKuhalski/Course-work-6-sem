@@ -1,13 +1,13 @@
-package by.bsuir.kuhalski.buber.repository;
+package by.bsuir.kuhalski.buber.service.impl;
 
 import by.bsuir.kuhalski.buber.AppConfiguration;
-import by.bsuir.kuhalski.buber.model.User;
+import by.bsuir.kuhalski.buber.model.Discount;
+import by.bsuir.kuhalski.buber.repository.impl.DiscountRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,17 +18,17 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(classes = {AppConfiguration.class})
-public class UserRepository  {
+public class DiscountServiceImplTest {
     @Autowired
-    @Qualifier("userRepository")
-    private Repository repository;
+    private DiscountService service;
     @Test
-    public void mustReturnAllUsers(){
+    public void mustReturnAllRegions(){
 
-        List<User> list = repository.queryAll();
+        List<Discount> list = service.loadAllEntities();
 
-        for (User user : list){
-            System.out.println(user );
+        for (Discount entity : list){
+            System.out.println(entity );
         }
     }
+
 }

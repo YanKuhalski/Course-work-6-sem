@@ -36,6 +36,6 @@ public class Car {
     private String carNumber;
 
     @OneToOne
-    @JoinColumn(name="driver")
+    @JoinColumn(name="driver",nullable = false)
     private User driver;
 }
