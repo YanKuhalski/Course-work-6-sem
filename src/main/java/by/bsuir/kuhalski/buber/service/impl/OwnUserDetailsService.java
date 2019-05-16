@@ -23,8 +23,6 @@ public class OwnUserDetailsService implements UserDetailsService {
     @Transactional(readOnly = true)
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println(username);
-
         Optional<by.bsuir.kuhalski.buber.model.User> optionalUser = userService.findByUserName(username);
         by.bsuir.kuhalski.buber.model.User user = optionalUser.orElse(new by.bsuir.kuhalski.buber.model.User());
         List<GrantedAuthority> authorities =
@@ -33,7 +31,6 @@ public class OwnUserDetailsService implements UserDetailsService {
         return buildUserForAuthentication(user, authorities);
     }
 
-
     private User buildUserForAuthentication(by.bsuir.kuhalski.buber.model.User user,
                                             List<GrantedAuthority> authorities) {
         return new User(user.getLogin(), user.getPassword(),
@@ -41,15 +38,12 @@ public class OwnUserDetailsService implements UserDetailsService {
     }
 
     private List<GrantedAuthority> buildUserAuthority(Set<Role> userRoles) {
-
         Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
         for (Role userRole : userRoles) {
             setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
         }
-
         List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
-
         return Result;
     }
 }

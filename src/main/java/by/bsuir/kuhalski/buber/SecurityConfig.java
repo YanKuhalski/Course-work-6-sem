@@ -37,10 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/common/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/driver/**").hasRole("DRIVER")
+                .antMatchers("/common/**").hasAnyRole("ADMIN", "USER","DRIVER")
                 .and()
                 .formLogin().loginPage("/loginPage")
-                .defaultSuccessUrl("/common/homePage/1")
+                .defaultSuccessUrl("/")
                 .failureUrl("/loginPage?error")
                 .usernameParameter("username").passwordParameter("password")
                 .and()

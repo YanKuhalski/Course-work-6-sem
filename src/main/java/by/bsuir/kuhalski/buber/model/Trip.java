@@ -74,15 +74,15 @@ public class Trip {
     public String toString() {
         return "Trip{" +
                 "id=" + id +
-                ",/n client=" + client.getLogin() +
-                ",/n driver=" + driver.getLogin() +
-                ",/n car=" + car.getCarNumber() +
-                ",/n startRegion=" + startRegion.getName() +
-                ",/n endRegion=" + endRegion.getName() +
-                ",/n discount=" + discount.getValue() +
-                ",/n isAccepted=" + isAccepted +
-                ",/n isPayed=" + isPayed +
-                ",/n isFinished=" + isFinished +
+                ",\n client=" + client.getLogin() +
+                ",\n driver=" + driver.getLogin() +
+                ",\n car=" + car.getCarNumber() +
+                ",\n startRegion=" + startRegion.getName() +
+                ",\n endRegion=" + endRegion.getName() +
+                ",\n discount=" + discount.getValue() +
+                ",\n isAccepted=" + isAccepted +
+                ",\n isPayed=" + isPayed +
+                ",\n isFinished=" + isFinished +
                 '}';
     }
 }

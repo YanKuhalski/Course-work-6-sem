@@ -2,7 +2,8 @@ package by.bsuir.kuhalski.buber.service.impl;
 
 import by.bsuir.kuhalski.buber.AppConfiguration;
 import by.bsuir.kuhalski.buber.model.Discount;
-import by.bsuir.kuhalski.buber.repository.impl.DiscountRepository;
+import by.bsuir.kuhalski.buber.model.Trip;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,28 +20,21 @@ import java.util.Optional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(classes = {AppConfiguration.class})
-public class DiscountServiceImplTest {
+public class TripServiceImplTest {
+
     @Autowired
-    private DiscountService service;
+    private TripService service;
     @Test
-    public void mustReturnAllRegions(){
+    public void mustDeleteTrip(){
+        Optional<Trip> trip2 = service.loadEntityById(2);
+        service.delete(trip2.get());
 
-        List<Discount> list = service.loadAllEntities();
-
-        for (Discount entity : list){
-            System.out.println(entity );
+     //   Optional<Trip> trip = service.loadEntityById(1);
+        List<Trip> trips = service.loadAllEntities();
+        for (Trip trip1 : trips){
+            System.out.println(trip1);
         }
+   //     Assert.assertEquals(false,trip.isPresent());
+
     }
-    @Test
-    public  void  mustDeleteById(){
-        Optional<Discount> discount = service.loadEntityById(1);
-        service.delete(discount.get());
-
-        List<Discount> list = service.loadAllEntities();
-
-        for (Discount entity : list){
-            System.out.println(entity );
-        }
-    }
-
 }

@@ -19,5 +19,7 @@ public interface Service<T> {
 
     boolean deleteById(long id);
 
+    void delete (T entity);
+
     long countAllRows();
 }

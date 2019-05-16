@@ -29,17 +29,17 @@ public abstract class AbstractRepository<T> implements Repository<T> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        Optional<T> objectOptById = queryById(id);
+    public void deleteById(long id) {
+       /* Optional<T> objectOptById = queryById(id);
         if (objectOptById.isPresent()) {
             T objectById = objectOptById.get();
             delete(objectById);
-        }
+        }*/
+        entityManager.createQuery("DELETE FROM "+getBaseName()+" WHERE id = :id").setParameter("id", id).executeUpdate();
     }
-
     @Override
     public void delete(T item) {
-        entityManager.remove(item);
+        entityManager.remove(entityManager.contains(item) ? item : entityManager.merge(item));
     }
 
     @Override

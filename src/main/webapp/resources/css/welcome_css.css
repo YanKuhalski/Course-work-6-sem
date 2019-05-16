@@ -5,7 +5,7 @@
 	background-color: #f0f0f0;
 	margin: 10px;
 	padding: 10px;
-	border-radius: 2px; 
+	border-radius: 7px; 
 }
 .main-info-box{
 	
@@ -24,6 +24,7 @@
 	margin:  3px;
 	padding: 5px;
 	font-size: 18px;
+	border: solid black 1px;
 }
 .pic{
 	width: 650px;
@@ -33,4 +34,32 @@
 	margin: 10px;
 	width: 650px;
 	height:  600px
+}
+.admin-menu-button{
+	background-color: blue;
+	font-size:35px;
+	border-radius: 25px;
+	padding: 7px;
+	margin: 12px;
+}
+a{
+	text-decoration: none;
+	color:  white;
+}
+.massage-div{
+	font-size: 27px;
+	padding: 5px;
+}
+
+.selection{
+ 	width: 300px;
+ 	border-radius:  25px;
+ 	padding: 4px;
+ 	margin:  4px 0px;	
+}
+.submit-button{
+	width: 300px;
+ 	border-radius:  25px;
+ 	padding: 4px;
+ 	margin:  4px 0px;	
 }

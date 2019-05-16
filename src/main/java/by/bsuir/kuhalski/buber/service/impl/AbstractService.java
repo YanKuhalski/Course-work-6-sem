@@ -38,7 +38,7 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Optional<T> loadEntityById(long id) {
         Optional optional = repository.queryById(id);
         log.info(RESULT_OF_SEARCHING_MESSAGE + " is " + optional.isPresent());
@@ -54,6 +54,7 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<T> loadEntitiesWithLimitAndSpecification(Specification specification, long limit, long offset) {
         return repository.queryBySpecificationWithLimit(specification, limit, offset);
     }
@@ -101,5 +102,11 @@ public abstract class AbstractService<T> implements Service<T> {
     @Transactional(readOnly = true)
     protected long countRows(Specification specification) {
         return repository.countRows(specification);
+    }
+
+    @Transactional
+    @Override
+    public void delete(T entity) {
+        repository.delete(entity);
     }
 }

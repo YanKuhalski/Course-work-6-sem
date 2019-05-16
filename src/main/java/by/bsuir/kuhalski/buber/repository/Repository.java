@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface Repository<T> {
     void save(T item);
 
-    void deleteById(Integer id);
+    void deleteById(long id);
 
     void delete(T item);
 

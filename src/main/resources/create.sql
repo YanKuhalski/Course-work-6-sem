@@ -50,10 +50,10 @@ discount_id bigserial not null,
 is_accepted bool default false not null,
 is_payed bool default false not null,
 is_finished bool default false not null,
-foreign key (client_id) references users(id) on delete no action on update cascade,
-foreign key (driver_id) references users(id) on delete no action on update cascade,
-foreign key (car_id) references car(id) on delete no action on update cascade,
-foreign key (start_region_id) references region(id) on delete no action on update cascade,
-foreign key (end_region_id) references region(id) on delete no action on update cascade,
-foreign key (discount_id) references discount(id) on delete no action on update cascade
+foreign key (client_id) references users(id) on delete cascade on update cascade,
+foreign key (driver_id) references users(id) on delete cascade on update cascade,
+foreign key (car_id) references car(id) on delete cascade on update cascade,
+foreign key (start_region_id) references region(id) on delete cascade on update cascade,
+foreign key (end_region_id) references region(id) on delete cascade on update cascade,
+foreign key (discount_id) references discount(id) on delete cascade on update cascade
 );

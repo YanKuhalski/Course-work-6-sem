@@ -9,5 +9,48 @@ header{
 	background-color: #302f2f;
 	height: 80px;
 	color: white;
+	display: flex;
 }
-.logo-div
+.left-box{
+	height: 60px;
+	width: 100px;
+	margin :   10px 800px 10px 10px;
+	font-size: 40px;
+}
+.right-box{
+	margin :   5px;
+	display:  flex;
+	 
+	height: 60px;
+	width: 500px;
+
+
+}
+.logo-div{
+	width:  140px;
+	height: 45px;
+	color: white;
+	padding: 2px;
+}
+.login{
+	width: 390px;
+	color: white;
+	padding:16px 6px 0px 0px;
+	text-align: right;
+	font-size: 23px;
+
+}
+.login-button{
+	width: 100px;
+    margin:  12px  0px  12px  0px;
+	border-radius:15px;
+	 
+	font-size: 23px;
+	padding:  4px 0px 0px 0px;
+	background-color:#2ed32e;
+}
+.table-icon{
+ height: 40px ;
+ width:  40px; 
+padding: 10px;
+}
